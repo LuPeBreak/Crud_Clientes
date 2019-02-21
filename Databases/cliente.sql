@@ -1,0 +1,12 @@
+CREATE TABLE `cliente` (
+`id` INT NOT NULL AUTO_INCREMENT,
+`nome` VARCHAR(70) NOT NULL,
+`endereco` VARCHAR(45) NULL,
+`numero` VARCHAR(10) NULL,
+`bairro` VARCHAR(30) NULL,
+`cidade` VARCHAR(45) NULL,
+`uf` CHAR(2) NULL,
+`cep` VARCHAR(9) NULL,
+`email` VARCHAR(70) NULL,
+`cpf` VARCHAR(14) NOT NULL,
+PRIMARY KEY (`id`));
