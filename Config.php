@@ -3,7 +3,7 @@
 $host="localhost";
 $user="root";
 $pass="";
-$db="etapa1";
+$db="etapa2";
 $root = $_SERVER['HTTP_HOST'];
 
 ?>

@@ -103,9 +103,11 @@
 
                 <div class="container">
                     <h2>Cadastro</h2>
-                    <form action="App\Register.php" method="POST" onSubmit='return validate()'>
+                    <div class="alert alert-danger">
+                      ERRO: Usuário ou senha inválidos.
+                    </div>
+                    <form action="App\Login.php" method="POST" onSubmit='return validate()'>
                         <div class="form-group">
-                            Nome: <input id='nome' class="form-control" type="text" name="nome" required><br>
                             Login: <input class="form-control" type="text" name="login" required><br>
                             Senha: <input id='senha' class="form-control" type="password" name="senha" required><br>
 

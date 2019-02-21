@@ -97,17 +97,23 @@
 
     <div class="container-fluid">
         <div class="row">
-        
+        <?php require __DIR__."/component/sidebar.php"; ?>    
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 
                 <div class="container">
-                    <h2>Cadastro</h2>
-                    <form action="App\Register.php" method="POST" onSubmit='return validate()'>
+                    <h2>Cadastro de clientes</h2>
+                    <form action="App\InsertClient.php" method="POST" onSubmit='return validate()'>
                         <div class="form-group">
                             Nome: <input id='nome' class="form-control" type="text" name="nome" required><br>
-                            Login: <input class="form-control" type="text" name="login" required><br>
-                            Senha: <input id='senha' class="form-control" type="password" name="senha" required><br>
+                            Email: <input class="email form-control" type="email" name="email"><br>
+                            Cep: <input class='cep form-control' type="text" name="cep"><br>
+                            Endereço: <input id='endereco' class='endereco form-control' type="text" name="endereco"><br>
+                            Numero: <input class='numero form-control' type="text" name="numero"><br>
+                            Bairro: <input class='bairro form-control' type="text" name="bairro"><br>
+                            Cidade: <input class='cidade form-control' type="text" name="cidade"><br>
+                            UF: <input id='uf' class='uf form-control' type="text" name="uf"><br>
+                            Cpf: <input id='cpf' class='cpf form-control' type="text" name="cpf" required><br>
 
                         </div>
                         <input type="submit" class="btn btn-primary" value="Submit">
@@ -123,6 +129,31 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"></script>
 
+    <script>
+        $(".cep").change(function () {
+            cep = $(".cep").val();
+            $.get("https://viacep.com.br/ws/" + cep + "/json/", function (data) {
+
+                $(".endereco").val(data['logradouro']);
+                $(".bairro").val(data['bairro']);
+                $(".uf").val(data['uf']);
+                $(".cidade").val(data['localidade']);
+
+                if (data['erro']) {
+                    alert('cep nao encontrado');
+                };
+
+
+
+            });
+
+        });
+
+
+
+        $(".cpf").mask('999.999.999-99');
+        $(".cep").mask('99999-999');
+    </script>
 </body>
 
 </html>

@@ -8,7 +8,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/Register.php">
+                <a class="nav-link" href="/ClientRegister.php">
                     <i class="fa fa-user-plus"></i>
                     Cadastro de Clientes
                 </a>
