@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!doctype html>
 <html lang="en">
 
@@ -103,9 +104,15 @@
 
                 <div class="container">
                     <h2>Cadastro</h2>
-                    <div class="alert alert-danger">
-                      ERRO: Usuário ou senha inválidos.
-                    </div>
+                    <?php
+                    if(!empty($_SESSION['erro'])){
+                        echo "<div class='alert alert-danger'>
+                        ERRO: {$_SESSION['erro']}.
+                        </div>";
+                    }
+                    
+
+                    ?>
                     <form action="App\Login.php" method="POST" onSubmit='return validate()'>
                         <div class="form-group">
                             Login: <input class="form-control" type="text" name="login" required><br>

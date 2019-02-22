@@ -1,4 +1,11 @@
-
+<?php 
+  session_start();
+  if(!$_SESSION['nome']){
+    header("location:Login.php");  
+    exit();
+  }
+  
+?>
 <!doctype html>
 <html lang="en">
 
@@ -59,9 +66,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/">H4Money</a>
-  </nav>
+<?php require __DIR__."/component/navbar.php"; ?>
 
   <div class="container-fluid">
     <div class="row">
@@ -70,8 +75,8 @@
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 
          <h4>
-         Quantidade de clientes:<?php require __DIR__."/App/ReadClient.php"; echo count($clientes); ?>
-         </h4> 
+         Quantidade de clientes:<?php require __DIR__."/App/CountUsers.php"; echo $users ?>
+         </h4>
           
 
       </main>
@@ -79,9 +84,11 @@
 
     </div>
   </div>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"></script>
+
   
 </body>
 

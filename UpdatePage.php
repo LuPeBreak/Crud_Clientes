@@ -1,3 +1,11 @@
+<?php 
+  session_start();
+  if(!$_SESSION['nome']){
+    header("location:Login.php");  
+    exit();
+  }
+  
+?>
 <!doctype html>
 <html lang="en">
 
@@ -91,9 +99,7 @@
 
 </script>
 
-    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/">H4Money</a>
-    </nav>
+<?php require __DIR__."/component/navbar.php"; ?>
 
     <div class="container-fluid">
         <div class="row">

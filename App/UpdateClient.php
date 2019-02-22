@@ -28,7 +28,7 @@ if(!validate($data)){
 $update->build('cliente',$data,"Where id= {$_POST["id"]}");
 
 
-header("location:http://$root");
+header("location:http://$root/Clientes.php");
 
 
 ?>

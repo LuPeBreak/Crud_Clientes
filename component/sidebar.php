@@ -2,9 +2,15 @@
     <div class="sidebar-sticky">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link" href="/Count.php">
+                <a class="nav-link" href="/">
                     <i class="fa fa-users"></i>
                     Quantidade de Clientes
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/CountUsers.php">
+                    <i class="fa fa-users"></i>
+                    Quantidade de Usuarios
                 </a>
             </li>
             <li class="nav-item">
@@ -14,7 +20,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/">
+                <a class="nav-link" href="/Clientes.php">
                     <i class="fa fa-user"></i>
                     Clientes
                 </a>

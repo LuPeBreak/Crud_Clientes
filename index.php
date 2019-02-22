@@ -1,3 +1,11 @@
+<?php 
+  session_start();
+  if(!$_SESSION['nome']){
+    header("location:Login.php");  
+    exit();
+  }
+  
+?>
 <!doctype html>
 <html lang="en">
 
@@ -58,64 +66,28 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/">H4Money</a>
-  </nav>
-
+  <?php require __DIR__."/component/navbar.php"; ?>
+  
   <div class="container-fluid">
     <div class="row">
-    <?php require __DIR__."/component/sidebar.php"; ?> 
+      <?php require __DIR__."/component/sidebar.php"; ?>
 
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <h4>
+          Quantidade de clientes:
+          <?php require __DIR__."/App/ReadClient.php"; echo count($clientes); ?>
+        </h4>
 
-        <div class="panel panel-default">
-          <h2>Clientes</h2>
-          <div class="table-responsive">
-            <table class="table table-striped table-sm">
-              <thead>
-                <tr>
-                  <th>Nome</th>
-                  <th>Email</th>
-                  <th>Endereço</th>
-                  <th>Numero</th>
-                  <th>Bairro</th>
-                  <th>CEP</th>
-                  <th>Cidade</th>
-                  <th>UF</th>
-                  <th>CPF</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                require __DIR__."/App/ReadClient.php";
-
-                foreach($clientes as $cliente){
-                  echo "<tr>";
-                  echo "<td>{$cliente['nome']}</td>";
-                  echo "<td>{$cliente['email']}</td>";
-                  echo "<td>{$cliente['endereco']}</td>";
-                  echo "<td>{$cliente['numero']}</td>";
-                  echo "<td>{$cliente['bairro']}</td>";
-                  echo "<td>{$cliente['cep']}</td>";
-                  echo "<td>{$cliente['cidade']}</td>";
-                  echo "<td>{$cliente['uf']}</td>";
-                  echo "<td>{$cliente['cpf']}</td>";
-                  echo "<td><a class='btn btn-danger btn-sm' href='App/DeleteClient.php?id={$cliente['id']}'>Deletar</a>  <a class='btn btn-light btn-sm' href='UpdatePage.php?id={$cliente['id']}'>Atualizar</a></td>";
-                  echo "</tr>";
-                  }
-                ?>
-              </tbody>
-            </table>
-          </div>
-        </div>
 
       </main>
 
+
     </div>
   </div>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"></script>
 
 
 </body>

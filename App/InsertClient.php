@@ -27,7 +27,7 @@ if(!validate($data)){
 $insert->build('cliente',$data);
 
 
-header("location:http://$root");
+header("location:http://$root/Clientes.php");
 
 
 ?>
