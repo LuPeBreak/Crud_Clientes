@@ -18,6 +18,7 @@
         $_SESSION['erro']= "Usuario ou senha invalido";
         header("location:http://$root/Login.php");
     }else{
+        session_unset($_SESSION['erro']);
         $nome= $usuario['0']['nome'];
         $_SESSION['login']= $login;
         $_SESSION['nome']= $nome;

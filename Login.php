@@ -1,4 +1,9 @@
-<?php session_start() ?>
+<?php session_start(); 
+if($_SESSION['nome']){
+    header("location:/");  
+    exit();
+}
+?>
 <!doctype html>
 <html lang="en">
 
