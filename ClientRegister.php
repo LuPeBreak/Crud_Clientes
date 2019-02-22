@@ -99,28 +99,34 @@
 
 </script>
 
-<?php require __DIR__."/component/navbar.php"; ?>
+    <?php require __DIR__."/component/navbar.php"; ?>
 
     <div class="container-fluid">
         <div class="row">
-        <?php require __DIR__."/component/sidebar.php"; ?>    
+            <?php require __DIR__."/component/sidebar.php"; ?>
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-
+                <?php 
+                    require __DIR__."/App/GetClient.php";
+                ?>
                 <div class="container">
-                    <h2>Cadastro de clientes</h2>
-                    <form action="App\InsertClient.php" method="POST" onSubmit='return validate()'>
+                    <h2><?php echo !empty($cliente)? "Atualizar cliente" :"Cadastro de clientes" ;?></h2>
+                    <form action=<?php echo !empty($cliente)? "app/UpdateClient.php" :"App\InsertClient.php" ;?> method="POST" onSubmit='return validate()'>
                         <div class="form-group">
-                            Nome: <input id='nome' class="form-control" type="text" name="nome" required><br>
-                            Email: <input class="email form-control" type="email" name="email"><br>
-                            Cep: <input class='cep form-control' type="text" name="cep"><br>
-                            Endereço: <input id='endereco' class='endereco form-control' type="text" name="endereco"><br>
-                            Numero: <input class='numero form-control' type="text" name="numero"><br>
-                            Bairro: <input class='bairro form-control' type="text" name="bairro"><br>
-                            Cidade: <input class='cidade form-control' type="text" name="cidade"><br>
-                            UF: <input id='uf' class='uf form-control' type="text" name="uf"><br>
-                            Cpf: <input id='cpf' class='cpf form-control' type="text" name="cpf" required><br>
-
+                            <?php 
+                            if(!empty($cliente)){   
+                                echo " <input type='hidden' name='id' value="."{$cliente['id']}". " readonly><br> ";
+                            }
+                            ?>
+                            Nome: <input id='nome' class='form-control' type='text' name='nome' value = "<?php echo !empty($cliente) ? $cliente['nome'] : '' ?>" required><br>
+                            Email: <input class="email form-control" type="email" name="email" value = "<?php echo !empty($cliente) ? $cliente['email'] : '' ?>"><br>
+                            Cep: <input class='cep form-control' type="text" name="cep" value = "<?php echo !empty($cliente) ? $cliente['cep'] : '' ?>"><br>
+                            Endereço: <input id='endereco' class='endereco form-control' type="text" name="endereco" value = "<?php echo !empty($cliente) ? $cliente['endereco'] : '' ?>"><br>
+                            Numero: <input class='numero form-control' type="text" name="numero" value = "<?php echo !empty($cliente) ? $cliente['numero'] : '' ?>"><br>
+                            Bairro: <input class='bairro form-control' type="text" name="bairro" value = "<?php echo !empty($cliente) ? $cliente['bairro'] : '' ?>"><br>
+                            Cidade: <input class='cidade form-control' type="text" name="cidade" value = "<?php echo !empty($cliente) ? $cliente['cidade'] : '' ?>"><br>
+                            UF: <input id='uf' class='uf form-control' type="text" name="uf" value = "<?php echo !empty($cliente) ? $cliente['uf'] : '' ?>"><br>
+                            Cpf: <input id='cpf' class='cpf form-control' type="text" name="cpf" required value = "<?php echo !empty($cliente) ? $cliente['cpf'] : '' ?>"><br>
                         </div>
                         <input type="submit" class="btn btn-primary" value="Submit">
                     </form>
@@ -132,7 +138,7 @@
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"></script>
 
     <script>

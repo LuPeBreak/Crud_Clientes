@@ -115,7 +115,6 @@ if($_SESSION['nome']){
                         ERRO: {$_SESSION['erro']}.
                         </div>";
                     }
-                    
 
                     ?>
                     <form action="App\Login.php" method="POST" onSubmit='return validate()'>
@@ -126,6 +125,7 @@ if($_SESSION['nome']){
                         </div>
                         <input type="submit" class="btn btn-primary" value="Submit">
                     </form>
+                    <a href="/Register.php">Registrar</a>
                 </div>
 
             </main>

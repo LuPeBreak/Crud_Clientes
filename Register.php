@@ -1,9 +1,4 @@
-<?php session_start(); 
-if($_SESSION['nome']){
-    header("location:/");  
-    exit();
-}
-?>
+
 <!doctype html>
 <html lang="en">
 
@@ -119,6 +114,7 @@ if($_SESSION['nome']){
                         </div>
                         <input type="submit" class="btn btn-primary" value="Submit">
                     </form>
+                    <a href="/Login.php">Entrar</a>
                 </div>
 
             </main>

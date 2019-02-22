@@ -20,9 +20,15 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/Clientes.php">
+                <a class="nav-link" href="/Clients.php">
                     <i class="fa fa-user"></i>
                     Clientes
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Users.php">
+                    <i class="fa fa-user"></i>
+                    Usuarios
                 </a>
             </li>
 

@@ -107,7 +107,7 @@
                   echo "<td>{$cliente['cidade']}</td>";
                   echo "<td>{$cliente['uf']}</td>";
                   echo "<td>{$cliente['cpf']}</td>";
-                  echo "<td><a class='btn btn-danger btn-sm' href='App/DeleteClient.php?id={$cliente['id']}'>Deletar</a>  <a class='btn btn-light btn-sm' href='UpdatePage.php?id={$cliente['id']}'>Atualizar</a></td>";
+                  echo "<td><a class='btn btn-danger btn-sm' href='App/DeleteClient.php?id={$cliente['id']}'>Deletar</a>  <a class='btn btn-light btn-sm' href='ClientRegister.php?id={$cliente['id']}'>Atualizar</a></td>";
                   echo "</tr>";
                   }
                 ?>

@@ -17,6 +17,10 @@ $data = [
 
 
 $insert->build('usuario',$data);
+    
+session_start();
+$_SESSION['login']= $_POST['login'];
+$_SESSION['nome']= $_POST["nome"];
 
 
 header("location:http://$root");
