@@ -16,6 +16,7 @@
   <meta name="author" content="Luis Felipe de Paula Costa">
   <title>H4Money</title>
 
+  
   <!-- Bootstrap core CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
 
@@ -36,33 +37,7 @@
   </style>
   <!-- Custom styles for this template -->
   <link href="/css/style.css" rel="stylesheet">
-  <style type="text/css">
-    /* Chart.js */
-    @-webkit-keyframes chartjs-render-animation {
-      from {
-        opacity: 0.99
-      }
-
-      to {
-        opacity: 1
-      }
-    }
-
-    @keyframes chartjs-render-animation {
-      from {
-        opacity: 0.99
-      }
-
-      to {
-        opacity: 1
-      }
-    }
-
-    .chartjs-render-monitor {
-      -webkit-animation: chartjs-render-animation 0.001s;
-      animation: chartjs-render-animation 0.001s;
-    }
-  </style>
+  
 </head>
 
 <body>
@@ -75,7 +50,7 @@
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 
          <h4>
-         Quantidade de clientes:<?php require __DIR__."/App/CountUsers.php"; echo $users ?>
+         Quantidade de usuarios:<?php require __DIR__."/App/CountUsers.php"; echo $users ?>
          </h4>
           
 

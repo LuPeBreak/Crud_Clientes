@@ -75,7 +75,8 @@
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 
         <div class="panel panel-default">
-          <h2>Clientes</h2>
+          <h2>Usuarios</h2>
+          <a class="btn btn-primary" href="/Register.php" role="button">Cadastrar</a><br><br>
           <div class="table-responsive">
             <table class="table table-striped table-sm">
               <thead>

@@ -99,17 +99,24 @@
 
     <div class="container-fluid">
         <div class="row">
-        
+        <?php 
+                    require __DIR__."/App/GetUser.php";
+            ?>
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 
                 <div class="container">
-                    <h2>Cadastro</h2>
+                    <h2><?php echo !empty($usuario)? "Atualizar" :"Cadastro" ;?></h2>
                     <form action="App\Register.php" method="POST" onSubmit='return validate()'>
                         <div class="form-group">
-                            Nome: <input id='nome' class="form-control" type="text" name="nome" required><br>
-                            Login: <input class="form-control" type="text" name="login" required><br>
-                            Senha: <input id='senha' class="form-control" type="password" name="senha" required><br>
+                        <?php 
+                            if(!empty($usuario)){   
+                                echo " <input type='hidden' name='id' value="."{$usuario['id']}". " readonly><br> ";
+                            }
+                        ?>
+                            Nome: <input id='nome' class="form-control" type="text" name="nome" value = "<?php echo !empty($usuario) ? $usuario['nome'] : '' ?>" required><br>
+                            Login: <input class="form-control" type="text" name="login" value = "<?php echo !empty($usuario) ? $usuario['login'] : '' ?>" required><br>
+                            Senha: <input id='senha' class="form-control" type="password" name="senha" value = "<?php echo !empty($usuario) ? $usuario['senha'] : '' ?>" required><br>
 
                         </div>
                         <input type="submit" class="btn btn-primary" value="Submit">
