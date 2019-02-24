@@ -24,7 +24,7 @@
     <section class="section">
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
         <h3>
-          Quantidade de clientes:
+          Quantidade de usuarios:
           <?php require __DIR__."/App/CountUsers.php"; echo $users ?>
         </h3>
         </main>
