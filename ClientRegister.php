@@ -6,28 +6,14 @@
   }
   
 ?>
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="Luis Felipe de Paula Costa">
-    <title>H4Money</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
-
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-        crossorigin="anonymous">
-    <!-- Custom styles for this template -->
-    <link href="/css/style.css" rel="stylesheet">
-    
+  <?php require __DIR__."/component/adminlte_head.php"; ?>
+  
 </head>
-
-<body>
-    <script>
+<body class="hold-transition skin-blue sidebar-mini">
+<script>
 
         function validate(){
 
@@ -60,20 +46,24 @@
         }
 
 </script>
+<div class="wrapper">
 
-    <?php require __DIR__."/component/navbar.php"; ?>
+  
+  <?php require __DIR__."/component/adminlte_navbar.php"; ?>
+  <!-- Left side column. contains the logo and sidebar -->
+  <?php require __DIR__."/component/adminlte_sidebar.php"; ?>
 
-    <div class="container-fluid">
-        <div class="row">
-            <?php require __DIR__."/component/sidebar.php"; ?>
-
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper col-sm-12">
+    
+    
                 <?php 
                     require __DIR__."/App/GetClient.php";
                 ?>
-                <div class="container">
-                    <h2><?php echo !empty($cliente)? "Atualizar cliente" :"Cadastro de clientes" ;?></h2>
+                <div class='col-sm-10'>
+                <h2><?php echo !empty($cliente)? "Atualizar cliente" :"Cadastro de clientes" ;?></h2>
                     <form action=<?php echo !empty($cliente)? "app/UpdateClient.php" :"App\InsertClient.php" ;?> method="POST" onSubmit='return validate()'>
+                        
                         <div class="form-group">
                             <?php 
                             if(!empty($cliente)){   
@@ -89,21 +79,26 @@
                             Cidade: <input class='cidade form-control' type="text" name="cidade" value = "<?php echo !empty($cliente) ? $cliente['cidade'] : '' ?>"><br>
                             UF: <input id='uf' class='uf form-control' type="text" name="uf" value = "<?php echo !empty($cliente) ? $cliente['uf'] : '' ?>"><br>
                             Cpf: <input id='cpf' class='cpf form-control' type="text" name="cpf" required value = "<?php echo !empty($cliente) ? $cliente['cpf'] : '' ?>"><br>
+                            <input type="submit" class="btn btn-primary" value="Submit">
                         </div>
-                        <input type="submit" class="btn btn-primary" value="Submit">
-                    </form>
+                    </form>     
                 </div>
+    
+  </div>
+  <!-- /.content-wrapper -->
+  
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
 
-            </main>
+<?php require __DIR__."/component/adminlte_js.php"; ?>
 
-
-        </div>
-    </div>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"></script>
-
-    <script>
+<script>
         $(".cep").change(function () {
             cep = $(".cep").val();
             $.get("https://viacep.com.br/ws/" + cep + "/json/", function (data) {
@@ -127,7 +122,7 @@
 
         $(".cpf").mask('999.999.999-99');
         $(".cep").mask('99999-999');
-    </script>
-</body>
+</script>
 
+</body>
 </html>

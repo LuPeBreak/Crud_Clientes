@@ -14,9 +14,9 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Gerenciar</li>
-        <li class="active treeview">
+        <li class="treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Usuarios</span>
+            <i class="fa fa-user"></i> <span>Usuarios</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -26,9 +26,9 @@
             <li><a href="/CountUsers.php"><i class="fa fa-circle-o"></i> Quantidade de usuarios</a></li>
           </ul>
         </li>
-        <li class="active treeview">
+        <li class="treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Clientes</span>
+            <i class="fa fa fa-users"></i> <span>Clientes</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>

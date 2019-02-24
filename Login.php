@@ -61,9 +61,6 @@ if(!empty($_SESSION['nome']) && $_SESSION['nome']){
 
 </script>
 
-    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/">H4Money</a>
-    </nav>
 
     <div class="container-fluid">
         <div class="row">
@@ -72,7 +69,7 @@ if(!empty($_SESSION['nome']) && $_SESSION['nome']){
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 
                 <div class="container">
-                    <h2>Cadastro</h2>
+                    <h2>Login</h2>
                     <?php
                     if(!empty($_SESSION['erro'])){
                         echo "<div class='alert alert-danger'>

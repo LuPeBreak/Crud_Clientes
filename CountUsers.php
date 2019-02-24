@@ -27,6 +27,7 @@
           Quantidade de clientes:
           <?php require __DIR__."/App/CountUsers.php"; echo $users ?>
         </h3>
+        </main>
     </section>
   </div>
   <!-- /.content-wrapper -->

@@ -28,6 +28,7 @@
           Quantidade de clientes:
           <?php require __DIR__."/App/ReadClient.php"; echo count($clientes); ?>
         </h3>
+        </main>
     </section>
   </div>
   <!-- /.content-wrapper -->
