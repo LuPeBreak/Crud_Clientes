@@ -1,5 +1,5 @@
 <?php session_start(); 
-if($_SESSION['nome']){
+if(!empty($_SESSION['nome']) && $_SESSION['nome']){
     header("location:/");  
     exit();
 }
@@ -13,6 +13,7 @@ if($_SESSION['nome']){
     <meta name="author" content="Luis Felipe de Paula Costa">
     <title>H4Money</title>
 
+    
     <!-- Bootstrap core CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
 
@@ -78,13 +79,25 @@ if($_SESSION['nome']){
                         ERRO: {$_SESSION['erro']}.
                         </div>";
                     }
+                    if(!empty($_SESSION['wrongrecaptcha'])){
+                        echo "<div class='alert alert-danger'>
+                        ERRO: {$_SESSION['wrongrecaptcha']}.
+                        </div>";
+                    }
 
                     ?>
                     <form action="App\Login.php" method="POST" onSubmit='return validate()'>
                         <div class="form-group">
                             Login: <input class="form-control" type="text" name="login" required><br>
                             Senha: <input id='senha' class="form-control" type="password" name="senha" required><br>
+                            <?php 
 
+                                if(!empty($_SESSION['recaptcha']) && $_SESSION['recaptcha']>=5){
+                                    echo "<div class='g-recaptcha' data-sitekey='6LfZkpMUAAAAAI_2pYp0J3Sx-x-VpOUYV7WI1Jx5'></div>";
+                                }
+
+                            ?>
+                            
                         </div>
                         <input type="submit" class="btn btn-primary" value="Submit">
                     </form>
@@ -99,7 +112,7 @@ if($_SESSION['nome']){
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"></script>
-
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 
 </html>
