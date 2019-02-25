@@ -13,17 +13,17 @@ if(!empty($_SESSION['nome']) && $_SESSION['nome']){
     <meta name="author" content="Luis Felipe de Paula Costa">
     <title>H4Money</title>
 
-    
+
     <!-- Bootstrap core CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
 
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
         crossorigin="anonymous">
-    
+
     <!-- Custom styles for this template -->
     <link href="/css/style.css" rel="stylesheet">
-    
+
 </head>
 
 <body>
@@ -64,42 +64,58 @@ if(!empty($_SESSION['nome']) && $_SESSION['nome']){
 
     <div class="container-fluid">
         <div class="row">
-        
 
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 
-                <div class="container">
-                    <h2>Login</h2>
-                    <?php
-                    if(!empty($_SESSION['erro'])){
-                        echo "<div class='alert alert-danger'>
-                        ERRO: {$_SESSION['erro']}.
-                        </div>";
-                    }
-                    if(!empty($_SESSION['wrongrecaptcha'])){
-                        echo "<div class='alert alert-danger'>
-                        ERRO: {$_SESSION['wrongrecaptcha']}.
-                        </div>";
-                    }
+            <main role="main" class=" ml-sm-auto col-lg-9 px-4">
+                <div class="row">
+                    <div class="col-lg-8 justify-center">
+                        <div class="card text-left">
+                            <div class="card-header">
+                                <h2 class="card-title">Login</h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="container">
+                                    
+                                    <?php
+                                    if(!empty($_SESSION['erro'])){
+                                        echo "<div class='alert alert-danger'>
+                                        ERRO: {$_SESSION['erro']}.
+                                        </div>";
+                                    }
+                                    if(!empty($_SESSION['wrongrecaptcha'])){
+                                        echo "<div class='alert alert-danger'>
+                                        ERRO: {$_SESSION['wrongrecaptcha']}.
+                                        </div>";
+                                    }
 
-                    ?>
-                    <form action="App/Login.php" method="POST" onSubmit='return validate()'>
-                        <div class="form-group">
-                            Login: <input class="form-control" type="text" name="login" required><br>
-                            Senha: <input id='senha' class="form-control" type="password" name="senha" required><br>
-                            <?php 
+                                    ?>
+                                    <form action="App/Login.php" method="POST" onSubmit='return validate()'>
+                                        <div class="form-group">
+                                            Login: <input class="form-control" type="text" name="login" required><br>
+                                            Senha: <input id='senha' class="form-control" type="password" name="senha"
+                                                required><br>
+                                            <?php 
                                 require __DIR__."/Config.php";
                                 if(!empty($_SESSION['recaptcha']) && $_SESSION['recaptcha']>=5){
                                     echo "<div class='g-recaptcha' data-sitekey='{$recaptcha_key}'></div>";
                                 }
 
                             ?>
-                            
+
+                                        </div>
+                                        <div class="btn-group">
+                                            <button type="submit" class="btn btn-primary">Entrar</button>
+                                            
+                                            <a class="btn btn-success" href="/Register.php">Registrar</a>                                        
+                                        </div>
+                                    </form>
+                                    
+                                </div>
+                            </div>
                         </div>
-                        <input type="submit" class="btn btn-primary" value="Submit">
-                    </form>
-                    <a href="/Register.php">Registrar</a>
+                    </div>
                 </div>
+
 
             </main>
 
@@ -107,7 +123,7 @@ if(!empty($_SESSION['nome']) && $_SESSION['nome']){
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>

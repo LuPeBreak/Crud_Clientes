@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 
@@ -15,10 +14,10 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
         crossorigin="anonymous">
-    
+
     <!-- Custom styles for this template -->
     <link href="/css/style.css" rel="stylesheet">
-    
+
 </head>
 
 <body>
@@ -58,39 +57,57 @@
 
 
     <div class="container-fluid">
-        <div class="row">
-        <?php 
+        <div class="row align-items-center justify-content-center">
+            <?php 
                     require __DIR__."/App/GetUser.php";
             ?>
+            
+                <div class="col-md-8">
+                    <main role="main" class="">
+                        <div class="card text-left">
+                            <div class="card-header">
+                                
+                                    <h2 class="card-title">
+                                        <?php echo !empty($usuario)? "Atualizar" :"Cadastro" ;?>
+                                    </h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="container">
+                                    <form action=<?php echo !empty($usuario)? "app/UpdateUser.php" : "App/Register.php" ;?>  method="POST" onSubmit='return validate()'>
+                                        <div class="form-group">
+                                            <?php 
+                                            if(!empty($usuario)){   
+                                                echo " <input type='hidden' name='id' value="."{$usuario['id']}". " readonly><br> ";
+                                            }
+                                        ?>
+                                            Nome: <input id='nome' class="form-control" type="text" name="nome" value="<?php echo !empty($usuario) ? $usuario['nome'] : '' ?>"
+                                                required><br>
+                                            Login: <input class="form-control" type="text" name="login" value="<?php echo !empty($usuario) ? $usuario['login'] : '' ?>"
+                                                required><br>
+                                            Senha: <input id='senha' class="form-control" type="password" name="senha" value="<?php echo !empty($usuario) ? $usuario['senha'] : '' ?>"
+                                                required><br>
 
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                                        </div>
+                                        <div class="btn-group">
+                                            <input type="submit" class="btn btn-success" value="Submit">
+                                            <a class="btn btn-primary" href="/Login.php">Entrar</a>
+                                        
+                                        </div>
+                                    </form>
+                                </div>
 
-                <div class="container">
-                    <h2><?php echo !empty($usuario)? "Atualizar" :"Cadastro" ;?></h2>
-                    <form action="App/Register.php" method="POST" onSubmit='return validate()'>
-                        <div class="form-group">
-                        <?php 
-                            if(!empty($usuario)){   
-                                echo " <input type='hidden' name='id' value="."{$usuario['id']}". " readonly><br> ";
-                            }
-                        ?>
-                            Nome: <input id='nome' class="form-control" type="text" name="nome" value = "<?php echo !empty($usuario) ? $usuario['nome'] : '' ?>" required><br>
-                            Login: <input class="form-control" type="text" name="login" value = "<?php echo !empty($usuario) ? $usuario['login'] : '' ?>" required><br>
-                            Senha: <input id='senha' class="form-control" type="password" name="senha" value = "<?php echo !empty($usuario) ? $usuario['senha'] : '' ?>" required><br>
-
+                            </div>
                         </div>
-                        <input type="submit" class="btn btn-primary" value="Submit">
-                    </form>
-                    <a href="/Login.php">Entrar</a>
-                </div>
 
-            </main>
+                    </main>                
+                </div>            
+            
 
 
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"></script>
 
 </body>
