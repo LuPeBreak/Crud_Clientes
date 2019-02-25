@@ -88,9 +88,9 @@ if(!empty($_SESSION['nome']) && $_SESSION['nome']){
                             Login: <input class="form-control" type="text" name="login" required><br>
                             Senha: <input id='senha' class="form-control" type="password" name="senha" required><br>
                             <?php 
-
+                                require __DIR__."Config.php";
                                 if(!empty($_SESSION['recaptcha']) && $_SESSION['recaptcha']>=5){
-                                    echo "<div class='g-recaptcha' data-sitekey='6LfZkpMUAAAAAI_2pYp0J3Sx-x-VpOUYV7WI1Jx5'></div>";
+                                    echo "<div class='g-recaptcha' data-sitekey='{$recaptcha_key}'></div>";
                                 }
 
                             ?>

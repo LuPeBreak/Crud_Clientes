@@ -5,5 +5,6 @@ $user="root";
 $pass="";
 $db="etapa2";
 $root = $_SERVER['HTTP_HOST'];
-$recaptcha_secret="6LfZkpMUAAAAABMiXn8C6P2FqwgOTULawmkdUFWQ";
+$recaptcha_secret="Your_secre_key_here";
+$recaptcha_key="Your_key_here";
 ?>
