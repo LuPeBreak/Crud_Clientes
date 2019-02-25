@@ -3,7 +3,7 @@ Tendo como condiçao a utilizaçao de PHP puro (vanilla).
 
 ## Objetivo
 
-Sistem de CRUD de clientes com autenticaçao(incluindo anti sql injection e recaptcha), utilizando PHP vanilla e o template AdminLTE 2.4.5 , tendo consulta de cep para o cadastro de clientes via webservice https://viacep.com.br/ e validaçao de campos no Back e Front-end utilizando PHP e JS.
+Sistema de CRUD de clientes com autenticaçao(incluindo anti sql injection e recaptcha), utilizando PHP vanilla e o template AdminLTE 2.4.5 , tendo consulta de cep para o cadastro de clientes via webservice https://viacep.com.br/ e validaçao de campos no Back e Front-end utilizando PHP e JS.
 
 ## Instalação 
 
