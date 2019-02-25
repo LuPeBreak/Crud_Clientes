@@ -1,8 +1,9 @@
-Esta aplicaçao foi feita mediante teste para vaga de estagio da empresa H4Money
+Esta aplicaçao foi feita mediante teste para vaga de estagio da empresa H4Money.
+Tendo como condiçao a utilizaçao de PHP puro (vanilla).
 
 ## Objetivo
 
-Sistem de CRUD de clientes com autenticaçao(Anti sql injection e com recaptcha), utilizando PHP vanilla e o template https://github.com/almasaeed2010/AdminLTE/releases/tag/v2.4.5 , tendo consulta de cep para o cadastro de clientes via webservice https://viacep.com.br/ e validaçao de campos no Back-end e Front-end utilizando PHP e JS.
+Sistem de CRUD de clientes com autenticaçao(incluindo anti sql injection e recaptcha), utilizando PHP vanilla e o template AdminLTE 2.4.5 , tendo consulta de cep para o cadastro de clientes via webservice https://viacep.com.br/ e validaçao de campos no Back e Front-end utilizando PHP e JS.
 
 ## Instalação 
 
