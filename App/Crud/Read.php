@@ -13,7 +13,8 @@ private $columns;
 
 /**
  * colmns  = "coluna1,coluna2,..."
- * clause  = " WHERE id = 1 AND nome = nome "
+ * clause['prepare']  = " WHERE id = 1 AND {key} = :{key} "
+ * clause['bind'] = ['{key}'=>{value}]
  */
 public function build($table, $clause = null, $columns = "*"){
     $this->table= (String) $table;
