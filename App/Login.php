@@ -12,7 +12,11 @@
     $recaptcha=true;
     $login =$_POST['login'];
     $senha = $_POST['senha'];
-    $clause = "WHERE login='{$login}' AND senha='{$senha}'";
+    $clause['bind']=[
+        'login'=>$login,
+        'senha'=>$senha,
+    ];
+    $clause['prepare'] = "WHERE login=:login AND senha=:senha";
     $read = new read;
     $usuario = $read->build('usuario',$clause);
 
