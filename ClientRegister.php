@@ -62,7 +62,7 @@
                 ?>
                 <div class='col-sm-10'>
                 <h2><?php echo !empty($cliente)? "Atualizar cliente" :"Cadastro de clientes" ;?></h2>
-                    <form action=<?php echo !empty($cliente)? "app/UpdateClient.php" :"App\InsertClient.php" ;?> method="POST" onSubmit='return validate()'>
+                    <form action=<?php echo !empty($cliente)? "app/UpdateClient.php" :"App/InsertClient.php" ;?> method="POST" onSubmit='return validate()'>
                         
                         <div class="form-group">
                             <?php 

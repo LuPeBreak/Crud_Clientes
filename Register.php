@@ -67,7 +67,7 @@
 
                 <div class="container">
                     <h2><?php echo !empty($usuario)? "Atualizar" :"Cadastro" ;?></h2>
-                    <form action="App\Register.php" method="POST" onSubmit='return validate()'>
+                    <form action="App/Register.php" method="POST" onSubmit='return validate()'>
                         <div class="form-group">
                         <?php 
                             if(!empty($usuario)){   

@@ -83,7 +83,7 @@ if(!empty($_SESSION['nome']) && $_SESSION['nome']){
                     }
 
                     ?>
-                    <form action="App\Login.php" method="POST" onSubmit='return validate()'>
+                    <form action="App/Login.php" method="POST" onSubmit='return validate()'>
                         <div class="form-group">
                             Login: <input class="form-control" type="text" name="login" required><br>
                             Senha: <input id='senha' class="form-control" type="password" name="senha" required><br>
