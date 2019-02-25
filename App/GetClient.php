@@ -5,7 +5,9 @@ if(!empty($_GET['id'])){
     require __DIR__."/Crud/Read.php";
 
     $read = new read;
-    $cliente = $read->build('cliente',"WHERE id={$_GET['id']}");
+    $clause['bind']= ['id'=>$_GET['id']];
+    $clause['prepare'] = "WHERE id= :id";
+    $cliente = $read->build('cliente',$clause);
     $cliente = $cliente['0'];
 }
 

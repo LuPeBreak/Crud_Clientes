@@ -23,12 +23,12 @@ public function build($table, $clause = null, $columns = "*"){
 }
 
 private function retrieve($clause){
-
-    $this->query = "SELECT $this->columns FROM $this->table $clause";
+    
+    $this->query = "SELECT $this->columns FROM $this->table {$clause['prepare']}";
     $this->conn = parent::connect();
     $this->read= $this->conn->prepare($this->query);
     try{
-        $this->read->execute();
+        $this->read->execute($clause['bind']);
         $this->result = $this->read->fetchAll();
     }catch(\PDOException $e){
         die("ERROR: " . $e->getMessage());
